@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #00A8E8;
+    --color-primary-dark: #007EA7;
+    --color-accent: #F9A03F;
+}
+
+:root {
+    --bg-light: #F5F7FA;
+    --text-dark: #1E1E1E;
+}
+
+@layer base {
+    body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+}
+
+@layer utilities {
+    .bg-bg-light {
+        background-color: var(--bg-light);
+    }
+    .text-text-dark {
+        color: var(--text-dark);
+    }
+}
+
+/* Mobile-friendly touch targets */
+.touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text selection on buttons */
+button, .button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Better scrolling on mobile */
+@media (max-width: 640px) {
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Fix select dropdowns on mobile */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Prevent select dropdown from appearing in wrong position on mobile */
+select:focus {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure select options are visible */
+select option {
+    padding: 12px;
+    font-size: 16px; /* Prevent zoom on iOS */
+}
+
+/* Fix for iOS select dropdown */
+@media (max-width: 640px) {
+    select {
+        font-size: 16px !important; /* Prevents zoom on focus in iOS */
+    }
+    
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"] {
+        font-size: 16px !important; /* Prevents zoom on focus in iOS */
+    }
+}
