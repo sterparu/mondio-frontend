@@ -8,6 +8,7 @@ import { Dashboard } from './pages/Dashboard';
 import { Dogs } from './pages/Dogs';
 import { Trainings } from './pages/Trainings';
 import { Sessions } from './pages/Sessions';
+import { ActivationCodes } from './pages/ActivationCodes';
 
 const AppRoutes = () => {
   const { isAuthenticated } = useAuth();
