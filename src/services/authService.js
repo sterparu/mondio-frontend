@@ -1,8 +1,8 @@
 import api from './api';
 
 export const authService = {
-  async register(email, password, activationCode) {
-    const response = await api.post('/register', { email, password, activationCode });
+  async register(email, password) {
+    const response = await api.post('/register', { email, password });
     return response.data;
   },
 

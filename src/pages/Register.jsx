@@ -6,7 +6,6 @@ export const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [activationCode, setActivationCode] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { register } = useAuth();
@@ -26,13 +25,8 @@ export const Register = () => {
       return;
     }
 
-    if (!activationCode || activationCode.trim() === '') {
-      setError('Codul de activare este obligatoriu');
-      return;
-    }
-
     setLoading(true);
-    const result = await register(email, password, activationCode.trim());
+    const result = await register(email, password);
     setLoading(false);
 
     if (result.success) {
@@ -100,25 +94,10 @@ export const Register = () => {
                 type="password"
                 autoComplete="new-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm"
                 placeholder="Confirmă parola"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="activationCode" className="sr-only">
-                Cod de activare
-              </label>
-              <input
-                id="activationCode"
-                name="activationCode"
-                type="text"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm"
-                placeholder="Cod de activare *"
-                value={activationCode}
-                onChange={(e) => setActivationCode(e.target.value)}
               />
             </div>
           </div>

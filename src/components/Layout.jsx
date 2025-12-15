@@ -120,18 +120,6 @@ export const Layout = ({ children }) => {
                 >
                   Sesiuni
                 </Link>
-                {user?.isTrainer && (
-                  <Link
-                    to="/activation-codes"
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                      isActive('/activation-codes')
-                        ? 'bg-primary text-white shadow-md'
-                        : 'text-gray-700 hover:bg-gray-100'
-                    }`}
-                  >
-                    Coduri
-                  </Link>
-                )}
               </div>
             </div>
 
@@ -283,19 +271,6 @@ export const Layout = ({ children }) => {
               >
                 Sesiuni
               </Link>
-              {user?.isTrainer && (
-                <Link
-                  to="/activation-codes"
-                  onClick={() => setShowMobileMenu(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    isActive('/activation-codes')
-                      ? 'bg-primary text-white'
-                      : 'text-gray-700 hover:bg-gray-100'
-                  }`}
-                >
-                  Coduri
-                </Link>
-              )}
               <div className="pt-4 border-t border-gray-200">
                 <div className="px-3 py-2">
                   <ImageUpload
